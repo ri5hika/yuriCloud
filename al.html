@@ -1,0 +1,173 @@
+<html>
+<head>
+    <title>Alerts Page - yuriCloud</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        /* Custom styles for the search results dropdown */
+        #searchResults {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: none;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 10;
+        }
+        .dropdown-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .dropdown-item:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+</head>
+<body class="bg-gradient-to-r from-green-100 to-blue-100 h-screen">
+    <div class="flex h-full">
+        <!-- Sidebar -->
+        <div class="w-16 bg-white flex flex-col items-center py-4 space-y-8">
+            <a href="dash.html"><div class="fas fa-chart-bar text-gray-500"></div>
+            <a href="al.html"><div class="fas fa-exclamation-triangle text-gray-500"></div></a>
+            <a href="exp.html"><div class="fas fa-compass text-gray-500"></div></a>
+            <a href="acc.html"><i class="fas fa-user-circle text-gray-500 mt-auto"></i></a>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-1 p-8">
+            <!-- Search Bar -->
+            <div class="flex items-center mb-8">
+                <div class="relative w-full">
+                    <input type="text" class="w-full py-2 px-4 rounded-full border border-gray-300" id="searchBar" placeholder="Search..." oninput="showResults()" autocomplete="off">
+                    <div id="searchResults" class="dropdown"></div>
+                    <i class="fas fa-search absolute top-3 right-4 text-gray-400"></i>
+                </div>
+                <div class="flex items-center space-x-4 ml-4">
+                    <a href="https://workspace.google.com/intl/en-US/products/calendar/" target="_blank"><i class="fas fa-calendar-alt text-gray-500"></i></a>
+                    <a href="https://www.google.co.in/keep/" target="_blank"><i class="fas fa-pen text-gray-500"></i></a>
+                </div>
+            </div>
+            <!-- Alerts Content -->
+            <div class="grid grid-cols-3 gap-8">
+                <!-- Alerts Section -->
+                <div>
+                    <h2 class="text-gray-600 mb-4">Current Alerts</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Critical Errors</h3>
+                            <p class="text-red-500 text-2xl">5</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Warnings</h3>
+                            <p class="text-yellow-500 text-2xl">12</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Resolved Issues</h3>
+                            <p class="text-green-500 text-2xl">20</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Pending Actions</h3>
+                            <p class="text-orange-500 text-2xl">8</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- History Section -->
+                <div>
+                    <h2 class="text-gray-600 mb-4">Alert History</h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Average for 24 Hours</h3>
+                            <p class="text-blue-500 text-xl">15 Alerts</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Average for 7 Days</h3>
+                            <p class="text-blue-500 text-xl">50 Alerts</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Notifications Section -->
+                <div>
+                    <h2 class="text-gray-600 mb-4">Notifications</h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Last Alerts</h3>
+                            <p class="text-purple-500 text-xl">3 Unread</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Total Notifications</h3>
+                            <p class="text-purple-500 text-xl">25</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Button Section -->
+            <div class="flex justify-center mt-12">
+                <button onclick="location.href='graph.html'" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-600">
+                    Perform Real-Time Check
+                </button>
+            </div>
+        </div>
+    </div>
+      
+
+    <script>
+        const data = [
+            { name: "Dashboard", url: "dash.html" },
+            { name: "Explore Page", url: "exp.html" },
+            { name: "Alerts Page", url: "al.html" },
+            { name: "My Account", url: "acc.html" },
+            { name: "Perform Real-Time Check", url: "al.html" },
+            { name: "Traffic Anomalies", url: "dash.html" },
+            { name: "Service Downtime", url: "dash.html" },
+            { name: "Log Out", url: "acc.html" },
+            { name: "Sales", url: "dash.html" },
+            { name: "Users", url: "dash.html" }
+        ];
+
+        function showResults() {
+            const query = document.getElementById('searchBar').value.toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+            resultsContainer.innerHTML = ''; // Clear previous results
+
+            if (query.trim() === '') {
+                resultsContainer.style.display = 'none'; // Hide if no input
+                return;
+            }
+
+            const filteredResults = data.filter(item => item.name.toLowerCase().includes(query));
+
+            if (filteredResults.length > 0) {
+                resultsContainer.style.display = 'block'; // Show dropdown
+                filteredResults.forEach(result => {
+                    const div = document.createElement('div');
+                    
+                    // Create an anchor element with the link
+                    const link = document.createElement('a');
+                    link.href = result.url; // Link to the appropriate page
+                    link.textContent = result.name; // Display result name
+                    link.style.display = 'block'; // Make the link block-level for easier clicking
+                    link.classList.add('dropdown-item'); // Apply the dropdown-item class for styling
+
+                    div.appendChild(link); // Add the link inside the div
+                    resultsContainer.appendChild(div); // Add div to the results container
+                });
+            } else {
+                resultsContainer.style.display = 'none'; // Hide if no results
+            }
+        }
+
+        function selectResult(result) {
+            document.getElementById('searchBar').value = result; // Set selected value
+            document.getElementById('searchResults').style.display = 'none'; // Hide dropdown
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

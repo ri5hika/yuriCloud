@@ -1,0 +1,192 @@
+<html>
+<head>
+    <title>Dashboard - yuriCloud</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom styles for the search results dropdown */
+        #searchResults {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: none;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 10;
+        }
+        .dropdown-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .dropdown-item:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-green-100 to-blue-100 h-screen">
+    <div class="flex h-full">
+        <!-- Sidebar -->
+        <div class="w-16 bg-white fixed h-full flex flex-col items-center py-4 space-y-8">
+            <a href="dash.html" class="sidebar-item"><div class="fas fa-chart-bar text-gray-500"></div></a>
+            <a href="al.html" class="sidebar-item"><div class="fas fa-exclamation-triangle text-gray-500"></div></a>
+            <a href="exp.html" class="sidebar-item"><div class="fas fa-compass text-gray-500"></div></a>
+            <a href="acc.html"><i class="fas fa-user-circle text-gray-500 mt-auto"></i></a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8 ml-16">
+            <!-- Search Bar -->
+            <div class="flex items-center mb-8">
+                <div class="relative w-full">
+                    <input type="text" class="w-full py-2 px-4 rounded-full border border-gray-300" id="searchBar" placeholder="Search..." oninput="showResults()" autocomplete="off">
+                    <div id="searchResults" class="dropdown"></div>
+                    <i class="fas fa-search absolute top-3 right-4 text-gray-400"></i>
+                </div>
+                <div class="flex items-center space-x-4 ml-4">
+                    <a href="https://workspace.google.com/intl/en-US/products/calendar/" target="_blank"><i class="fas fa-calendar-alt text-gray-500"></i></a>
+                    <a href="https://www.google.co.in/keep/" target="_blank"><i class="fas fa-pen text-gray-500"></i></a>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="grid grid-cols-3 gap-8">
+                <!-- Overview Section -->
+                <div>
+                    <h2 class="text-gray-600 mb-4">Overview</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Last Active Users</h3>
+                            <p class="text-red-500 text-2xl">3<span class="text-black">/112</span></p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Last Active Hosts</h3>
+                            <p class="text-red-500 text-2xl">1<span class="text-black">/5</span></p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Web Checks</h3>
+                            <p class="text-red-500 text-2xl">14<span class="text-black">/hr</span></p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Total Sales</h3>
+                            <p class="text-red-500 text-2xl">2566</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32 col-span-2">
+                            <h3 class="text-gray-600">Services Used</h3>
+                            <p class="text-red-500 text-2xl">8<span class="text-black"> Existing</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Infrastructure Section -->
+                <div>
+                    <h2 class="text-gray-600 mb-4">Cloud Infrastructure</h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">My Account</h3>
+                            <p class="text-2xl text-gray-700">Working</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Shipment Account</h3>
+                            <p class="text-2xl text-gray-700">Operational</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">User Data</h3>
+                            <p class="text-red-500 text-2xl">503 GB<span class="text-black"> used</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demographics Section -->
+                <div>
+                    <h2 class="text-gray-600 mb-4">Demographics</h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">Users Worldwide</h3>
+                            <p class="text-red-500 text-2xl">15,230<span class="text-black"> Users</span></p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-32">
+                            <h3 class="text-gray-600">3rd Party Sales</h3>
+                            <p class="text-red-500 text-2xl">1,200<span class="text-black"> Sales</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graph Content -->
+            <div class="grid grid-cols-2 gap-8 mt-8">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-gray-600">Traffic Anomalies</h3>
+                    <canvas id="chart1" class="h-40"></canvas>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-gray-600">Service Downtime</h3>
+                    <canvas id="chart2" class="h-40"></canvas>
+                </div>
+            </div>
+
+            <!-- Extra Space at the Bottom -->
+            <div class="mt-12"></div>
+        </div>
+    </div>
+
+    <script>
+        const data = [
+            { name: "Dashboard", url: "dash.html" },
+            { name: "Explore Page", url: "exp.html" },
+            { name: "Alerts Page", url: "al.html" },
+            { name: "My Account", url: "acc.html" },
+            { name: "Perform Real-Time Check", url: "al.html" },
+            { name: "Traffic Anomalies", url: "dash.html" },
+            { name: "Service Downtime", url: "dash.html" },
+            { name: "Log Out", url: "acc.html" },
+            { name: "Sales", url: "dash.html" },
+            { name: "Users", url: "dash.html" }
+        ];
+
+        function showResults() {
+            const query = document.getElementById('searchBar').value.toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+            resultsContainer.innerHTML = ''; // Clear previous results
+
+            if (query.trim() === '') {
+                resultsContainer.style.display = 'none'; // Hide if no input
+                return;
+            }
+
+            const filteredResults = data.filter(item => item.name.toLowerCase().includes(query));
+
+            if (filteredResults.length > 0) {
+                resultsContainer.style.display = 'block'; // Show dropdown
+                filteredResults.forEach(result => {
+                    const div = document.createElement('div');
+                    
+                    // Create an anchor element with the link
+                    const link = document.createElement('a');
+                    link.href = result.url; // Link to the appropriate page
+                    link.textContent = result.name; // Display result name
+                    link.style.display = 'block'; // Make the link block-level for easier clicking
+                    link.classList.add('dropdown-item'); // Apply the dropdown-item class for styling
+
+                    div.appendChild(link); // Add the link inside the div
+                    resultsContainer.appendChild(div); // Add div to the results container
+                });
+            } else {
+                resultsContainer.style.display = 'none'; // Hide if no results
+            }
+        }
+
+        function selectResult(result) {
+            document.getElementById('searchBar').value = result; // Set selected value
+            document.getElementById('searchResults').style.display = 'none'; // Hide dropdown
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

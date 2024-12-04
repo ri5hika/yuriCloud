@@ -1,0 +1,263 @@
+<html>
+<head>
+    <title>Explore Page - yuriCloud</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Custom styles for the search results dropdown */
+        #searchResults {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: none;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 10;
+        }
+        .dropdown-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .dropdown-item:hover {
+            background-color: #ddd;
+        }
+        /* Custom styles for the article preview image */
+        .article-preview {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
+    
+</head>
+<body class="bg-gradient-to-r from-green-100 to-blue-100 h-screen">
+    <div class="flex h-full">
+        <!-- Sidebar -->
+        <div class="w-16 bg-white fixed h-full flex flex-col items-center py-4 space-y-8">
+            <a href="dash.html"><div class="fas fa-chart-bar text-gray-500"></div></a>
+            <a href="al.html"><div class="fas fa-exclamation-triangle text-gray-500"></div></a>
+            <a href="exp.html"><div class="fas fa-compass text-gray-500"></div></a>
+            <a href="acc.html"><i class="fas fa-user-circle text-gray-500 mt-auto"></i></a>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-1 p-8 ml-16">
+            <!-- Search Bar -->
+            <div class="flex items-center mb-8">
+                <div class="relative w-full">
+                    <input type="text" class="w-full py-2 px-4 rounded-full border border-gray-300" id="searchBar" placeholder="Search..." oninput="showResults()" autocomplete="off">
+                    <div id="searchResults" class="dropdown"></div>
+                    <i class="fas fa-search absolute top-3 right-4 text-gray-400"></i>
+                </div>
+                <div class="flex items-center space-x-4 ml-4">
+                    <a href="https://workspace.google.com/intl/en-US/products/calendar/" target="_blank"><i class="fas fa-calendar-alt text-gray-500"></i></a>
+                    <a href="https://www.google.co.in/keep/" target="_blank"><i class="fas fa-pen text-gray-500"></i></a>
+                </div>
+            </div>
+            <!-- Explore Content -->
+            <br> <p style="text-align: center;">Explore Related Articles</p>
+            <div class="grid grid-cols-3 gap-8">
+                <!-- Cybersecurity Articles Section -->
+                <div>
+                    <h2 class="text-gray-600 mb-4"></h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/cyber-security-concept-digital-art_23-2151637765.jpg?t=st=1733250078~exp=1733253678~hmac=57e18cbfd46cea1b7cf3d128edd9910648083c06133ab1ea5dcb81b41ea86719&w=1480" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Understanding Zero Trust Security</h3>
+                            <a href="https://www.cloudflare.com/learning/security/glossary/what-is-zero-trust/#:~:text=Zero%20Trust%20security%20is%20an,outside%20of%20the%20network%20perimeter." target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/cloud-data-storage-rack-concept-glass-cube-cloudscape-digital-metaverse-server-global-network-business-web-database-backup-computer-private-infrastructure-technology_90220-1363.jpg?t=st=1733250178~exp=1733253778~hmac=cb8bb14a72245c9391468972c40d64c09f7df2c1ad27fae16485a6d3631af5d7&w=1060" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">How to Protect Your Cloud Infrastructure</h3>
+                            <a href="https://www.ekransystem.com/en/blog/cloud-infrastructure-security" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/cybersecurity-concept-collage-design_23-2151877154.jpg?t=st=1733250218~exp=1733253818~hmac=48ea6286c00a1d55050638bc013aa34aede47fef7301ecb3f37e850420542d95&w=1060" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Top Cyber Threats in 2024</h3>
+                            <a href="https://umbrella.cisco.com/info/cyber-threat-trends-report?utm_medium=search-paid&utm_source=google&utm_campaign=UMB_APJC_IN_EN_GS_Nonbrand_Threats_T1&utm_content=DNS-FY24-Q4-Content-Ebook-Cyber-Threat-Trends-Report&_bt=712231207891&_bk=cybersecurity%20threats&_bm=p&_bn=g&_bg=161647957321&gad_source=1&gclid=CjwKCAjw68K4BhAuEiwAylp3ks3L1Ax9IgSrABxoVk2jaeIbd4MaoqMnjlkujLanZzZY-NZEMtVJrBoC1M4QAvD_BwE" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/portrait-person-entrapped-by-cybersickness-using-smart-device-too-long_23-2151393805.jpg?t=st=1733252227~exp=1733255827~hmac=4991d120ae80bef79a2d758912aad23c65ca21a744a9ba30f8569d1df6c051c6&w=1060" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Online Safety for Teens</h3>
+                            <a href="https://kidshealth.org/en/teens/internet-safety.html" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/business-person-futuristic-business-environment_23-2150970232.jpg?t=st=1733252377~exp=1733255977~hmac=c98cd3de31b5d1d3da3367a6888d9d3e225523ebe26b4bc6e5c7bf5cf77fdab5&w=1060" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Cybersecurity Best Practices</h3>
+                            <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/online-shopping-concept_23-2151896830.jpg?t=st=1733252499~exp=1733256099~hmac=cc382d1c540551a9d3f8dcaa493bba4aaa69ae9b9b4cb731d3ddf90dd1f97766&w=1380" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">New Technology Trends</h3>
+                            <a href="https://www.simplilearn.com/top-technology-trends-and-jobs-article" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Tools & Resources Section -->
+                <div>
+                    <h2 class="text-gray-600 mb-4"></h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/blockchain-technology-cartoon-illustration_23-2151572163.jpg?t=st=1733250318~exp=1733253918~hmac=90ca0fa01e459fcb5427ca8e10e6fadf420e4a6c18948c6c811995f52a9e401c&w=1060" alt="Resource Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Best Open-Source Security Tools</h3>
+                            <a href="https://owasp.org/www-community/Free_for_Open_Source_Application_Security_Tools" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/person-using-ar-technology-perform-their-occupation_23-2151137508.jpg?t=st=1733250424~exp=1733254024~hmac=5abf33666b8d1b02ddb57333476ff625cfffc17ec4a36a0d2468cbd71de64e96&w=1060" alt="Resource Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Guide to Penetration Testing</h3>
+                            <a href="https://www.bluevoyant.com/knowledge-center/penetration-testing-complete-guide-to-process-types-and-tools" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/gradient-technology-background_23-2151895854.jpg?t=st=1733250527~exp=1733254127~hmac=c853901e0b2e60dd94967c9eed01d008d0d17bcbb446837260010fca4ebc3f75&w=1380" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">What is Cloud Security</h3>
+                            <a href="https://www.proofpoint.com/us/threat-reference/cloud-security" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/modern-man-tech-collection-wooden-desk-headphones-sunglasses-smartphone-generated-by-ai_24640-92923.jpg?t=st=1733252612~exp=1733256212~hmac=caac3c38b88979b0538d28eb35c0a3d98abab4f9c5ab82b842e95578c2a81973&w=1380" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Latest Tech and Gadgets</h3>
+                            <a href="https://thegadgetflow.com/categories/tech-gadgets/" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/cinematic-computer-monitor_1409-7498.jpg?t=st=1733253153~exp=1733256753~hmac=0671f1e8c5e374699394507ce93034c9d9fe3d17ea2ea75f37ddbb12ef26a5e1&w=1480" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">New Computer Viruses</h3>
+                            <a href="https://www.avast.com/c-new-computer-viruses" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/futuristic-technology-concept_23-2151908124.jpg?t=st=1733253342~exp=1733256942~hmac=5755bc2b08aefe2a4c45cae95912dbd26e3b9b66333b3774ce4c8935fc68ecf9&w=740" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Systematic Study of Computer Virus</h3>
+                            <a href="https://journalajrcos.com/index.php/AJRCOS/article/view/385" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Latest News Section -->
+                <div>
+                    <h2 class="text-gray-600 mb-4"></h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/hacker-which-has-it-theme-background_1268-24685.jpg?t=st=1733250590~exp=1733254190~hmac=00cda98c1f4f990d7cad55a95cb6d4ee2b9e5570e618adfc503fba029ee0cb04&w=1060" alt="News Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Ransomware Attacks Surge Worldwide</h3>
+                            <a href="https://go.veeam.com/ransomware-trends-executive-summary-2024-apj?st=adwordspaidsearch&utm_source=google&utm_medium=cpc&utm_campaign=01P-BRS-PMIX_APJ_EN_SAARC_Paid-Search_WP_Ransomware-Trends-2024_1AW&utm_content=cid|21376058331_ntw|g_adgr|166437899751_creative|702505242604_ext|_adposition|_locph|9302026_dev|c_devm|_placement|_gclid|CjwKCAjw68K4BhAuEiwAylp3kvU4xpc-XGKyP4yy_zYekC2i_CH5Kl8JtjfGgiyM93j2CJO7bDMA-RoCVN0QAvD_BwE" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/abstract-cybersecurity-concept-design_23-2151841670.jpg?t=st=1733250636~exp=1733254236~hmac=e7197908a76c66204a391cb8c0ff7c8770cc53bfb2355fe4ea2e70ae64dc2a6d&w=360" alt="News Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Data Breaches in Major Companies</h3>
+                            <a href="https://www.csoonline.com/article/534628/the-biggest-data-breaches-of-the-21st-century.html" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/futuristic-technology-concept_23-2151908064.jpg?t=st=1733250704~exp=1733254304~hmac=45bad21b3c693cd259bd825a396b0c1d3a5bf40fe50e25e650719c1b7d159dc5&w=1060" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Understanding Anomaly Detection in Monitoring</h3>
+                            <a href="https://www.temperstack.com/blog/reliability-foundations-1-understanding-anomaly-detection" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/view-brain-with-circuit-board_23-2150834083.jpg?t=st=1733253622~exp=1733257222~hmac=57494d5b8bf82abd6d71064071fa9110195a1815251c47adbafc8d70ff4fb5f4&w=826" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Machine Learning for Anomaly Detection</h3>
+                            <a href="https://img.freepik.com/free-photo/futuristic-technology-concept_23-2151908124.jpg?t=st=1733253342~exp=1733256942~hmac=5755bc2b08aefe2a4c45cae95912dbd26e3b9b66333b3774ce4c8935fc68ecf9&w=740" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/laptop-with-graph-screen-that-says-29-it_1340-35885.jpg?t=st=1733253658~exp=1733257258~hmac=e654ffaf1411e939f9a86334bf0f7b4d84a560d94e4199a2d1887760ea07b23e&w=1060" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">What is Anomaly Detection</h3>
+                            <a href="https://aws.amazon.com/what-is/anomaly-detection/" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow h-auto">
+                            <img src="https://img.freepik.com/free-photo/view-3d-computer-device-with-peripheral-devices_23-2150714053.jpg?t=st=1733253582~exp=1733257182~hmac=1f8a18c61529a73ad4ea6187801204771c768475a115be079827e82f92e4c5f1&w=826" alt="Article Image" class="article-preview mb-4">
+                            <h3 class="text-gray-600">Tools That Shield You From Online Threats</h3>
+                            <a href="https://www.simplilearn.com/top-cyber-security-tools-article" target="_blank" class="text-blue-500 underline">Read More</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <p style="text-align: center;">
+        NOTE: All images used are the property of their rightful owners and were designed by Freepik. <a href="https://www.freepik.com/popular-photos" target="_blank" class="text-blue-500 underline">Source.</a>
+    </p>
+    <br>
+    <br>
+    <br> 
+
+
+    <script>
+        const data = [
+                                { name: "Dashboard", url: "dash.html" },
+                                { name: "Explore Page", url: "exp.html" },
+                                { name: "Alerts Page", url: "al.html" },
+                                { name: "My Account", url: "acc.html" },
+                                { name: "Perform Real-Time Check", url: "al.html" },
+                                { name: "Traffic Anomalies", url: "dash.html" },
+                                { name: "Service Downtime", url: "dash.html" },
+                                { name: "Log Out", url: "acc.html" },
+                                { name: "Sales", url: "dash.html" },
+                                { name: "Users", url: "dash.html" }
+                            ];
+
+        function showResults() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.innerHTML = '';
+            if (input) {
+                const results = data.filter(item => item.name.toLowerCase().includes(input));
+                results.forEach(result => {
+                    const div = document.createElement('div');
+                    div.className = 'dropdown-item';
+                    div.textContent = result.name;
+                    div.onclick = () => window.location.href = result.url;
+                    resultsDiv.appendChild(div);
+                });
+                resultsDiv.style.display = results.length ? 'block' : 'none';
+            } else {
+                resultsDiv.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

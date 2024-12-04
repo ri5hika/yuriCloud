@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Perfrom Check - yuriCloud</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Graphs</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-green-100 to-blue-100 h-screen">
+    <div class="container">
+        <div class="side-nav">
+            <ul>
+                <li><a href="#cpu-usage">CPU Usage</a></li>
+                <li><a href="#memory-usage">Memory Usage</a></li>
+                <li><a href="#network-traffic">Network Traffic</a></li>
+                <li><a href="#correlation-heatmap">Correlation Map</a></li>
+                <li><a href="#distribution">Metric Distribution</a></li>
+                <li><a href='al.html'>↩ Back to Home</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <!-- CPU Usage -->
+            <section id="cpu-usage">
+                <h2>CPU Usage</h2>
+                <div id="cpu-usage-chart"></div>
+            </section>
+            <!-- Memory Usage -->
+            <section id="memory-usage">
+                <h2>Memory Usage</h2>
+                <div id="memory-usage-chart"></div>
+            </section>
+            <!-- Network Traffic -->
+            <section id="network-traffic">
+                <h2>Network Traffic</h2>
+                <div id="network-traffic-chart"></div>
+            </section>
+            <!-- Correlation Heatmap -->
+            <section id="correlation-heatmap">
+                <h2>Correlation Map</h2>
+                <div id="correlation-heatmap-chart"></div>
+            </section>
+            <!-- Metric Distribution -->
+            <section id="distribution">
+                <h2>Metric Distribution</h2>
+                <div id="distribution-chart"></div>
+            </section>
+        </div>
+    </div>
+    <script src="graph.js"></script>
+</body>
+</html>
+

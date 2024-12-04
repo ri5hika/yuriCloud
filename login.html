@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - yuriCloud</title>
+    <link rel="stylesheet" href="css.css">
+
+    <script type="text/javascript">
+        // Disable back and forward navigation after logging out
+        function preventNavigation() {
+            window.history.pushState(null, "", window.location.href);
+            window.onpopstate = function () {
+                window.history.pushState(null, "", window.location.href);
+            };
+        }
+    
+        preventNavigation();
+    
+        // Prevent forward button from functioning after logout
+        window.onunload = function () {
+            sessionStorage.clear(); // Clear session data when the page unloads
+        };
+    </script>
+
+</head>
+<body>
+    <div class="welcome-container">
+        <img src="logo.png" alt="Logo" style="display:block; margin: 0 auto; width: 150px; height: auto;">
+        <br> <br>
+        <h1>Welcome to yuriCloud: AI-Powered<br>Anomaly Detection in Cloud Infrastructure!</h1>
+    </div>
+    <br> <br> <br> <br> <br> 
+    <br> <br>
+    <br>
+    <br>
+    <br>
+    
+    <div class="login-box">
+        <h2>Log In</h2>
+        <form id="loginForm">
+            <div class="input-box">
+                <input type="text" id="account" placeholder="Account Name" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="checkbox" id="showPassword"> Show Password
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+
+    <div class="note">
+        <br>
+        <br>
+        <br> <br> 
+        <p style="text-align: center;">
+            NOTE: This website uses pre-existing data from a demo cloud server, featuring information from<br>the year 2024. To access that server, use ID: "<strong>test_cloud_infra</strong>" and password: "<strong>cloud@infra12</strong>".
+        </p>
+        
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

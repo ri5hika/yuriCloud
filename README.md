@@ -3,6 +3,11 @@ Yuri Cloud is a sleek, intuitive web-based dashboard that uses AI to monitor clo
 
 ---
 
+## Demo Video
+https://www.youtube.com/watch?v=8PrJ6HbStQc
+
+---
+
 ## Features
 - Real-Time Anomaly Detection using Isolation Forest and DAGMM models
 - Interactive Dashboard with modern graphs and cloud activity visuals
